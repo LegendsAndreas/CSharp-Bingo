@@ -4,22 +4,22 @@ using static Program;
 public class Row
 {
     // Properties of a row
-    public int[] numbers { get; set; } = new int[9]; // Numbers in the row
-    public int points { get; set; } = 0; // Points earned in the row
-    public bool lineStatus { get; set; } = false; // Status of the line (completed or not)
+    public int[] rowNumbers { get; set; } = new int[9];
+    public int fullRows { get; set; } = 0;
+    public bool rowCompletion { get; set; } = false;
 
     // Method to create a row with random numbers
     public void CreateRow(List<int> usedNumbers)
     {
-        int[] indexes = getIndexies(); // Where the numbers will be placed.
-        numbers = GetNumbers(indexes, usedNumbers); // What numbers will be placed.
+        int[] indexes = GetIndexies(); // Where the numbers will be placed.
+        rowNumbers = GetNumbersForRow(indexes, usedNumbers); // What numbers will be placed.
     }
 
     // Method to examine the row for errors (number of empty spots)
     public int ExamineRow()
     {
         int zeroCounter = 0;
-        foreach (int number in numbers)
+        foreach (int number in rowNumbers)
         {
             if (number == 0)
                 zeroCounter++;
@@ -28,16 +28,16 @@ public class Row
     }
 
     // Method to insert a bingo number into the row
-    public void InsertBingoNumberIntoRow(Row row, int bingoNumberIndex, int rowNum, BankoPlade plade)
+    public void InsertBingoNumberIntoRow(Row row, int bingoNumberIndex, int rowNum, BingoPlate plade)
     {
-        row.numbers[bingoNumberIndex] = 99;
-        row.points++;
-        if (row.points == 5)
+        row.rowNumbers[bingoNumberIndex] = 99;
+        row.fullRows++;
+        if (row.fullRows == 5)
         {
-            row.lineStatus = true;
-            row.points++;
-            plade.earnedRows++;
-            if (plade.earnedRows < 3)
+            row.rowCompletion = true;
+            row.fullRows++;
+            plade.completedRows++;
+            if (plade.completedRows < 3)
                 Console.WriteLine($"You got row {rowNum}!");
         }
         //Console.WriteLine("Row1" + Row1.points);
@@ -47,7 +47,7 @@ public class Row
     }
 
     // Helper method to get numbers for the row
-    private int[] GetNumbers(int[] indexes, List<int> usedNumbers)
+    private int[] GetNumbersForRow(int[] indexes, List<int> usedNumbers)
     {
         int number;
         Random r = new();
@@ -70,7 +70,7 @@ public class Row
                 }
 
             }
-            while (CheckDuplicateNumber(usedNumbers, number));
+            while (CheckIfDuplicateNumber(usedNumbers, number));
 
             usedNumbers.Add(number);
             row[index] = number;
@@ -80,7 +80,7 @@ public class Row
     }
 
     // Helper method to check for duplicate numbers
-    private bool CheckDuplicateNumber(List<int> usedNumbers, int number)
+    private bool CheckIfDuplicateNumber(List<int> usedNumbers, int number)
     {
         if (usedNumbers.Contains(number))
             return true;
@@ -89,7 +89,7 @@ public class Row
     }
 
     // Helper method to get indexes for number placement in the row
-    private int[] getIndexies()
+    private int[] GetIndexies()
     {
         int[] indexes = new int[5]; // Indexes where our values will be placed.
         List<int> availabileIndexes = new() { 0, 1, 2, 3, 4, 5, 6, 7, 8 }; // List, so that we can change the size.

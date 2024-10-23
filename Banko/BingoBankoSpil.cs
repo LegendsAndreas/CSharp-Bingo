@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 // Class representing a basic bingo game
 public class BingoBankoSpil
 {
-    BankoPlade[] bankoPlader; // Array of bingo plates
+    BingoPlate[] bingoPlates; // Array of bingo plates
     readonly List<int> usedBingoNumbers = new(); // List to keep track of used bingo numbers
 
     /// <summary>
@@ -18,14 +18,14 @@ public class BingoBankoSpil
     /// <param name="initSize"></param>
     public BingoBankoSpil(int initSize)
     {
-        bankoPlader = new BankoPlade[initSize];
+        bingoPlates = new BingoPlate[initSize];
 
-        for (int i = 0; i < bankoPlader.Length; i++)
+        for (int i = 0; i < bingoPlates.Length; i++)
         {
-            bankoPlader[i] = new BankoPlade();
-            bankoPlader[i].AssignID(i);
-            bankoPlader[i].SetName($"{i} of {i}");
-            bankoPlader[i].CreateRows();
+            bingoPlates[i] = new BingoPlate();
+            bingoPlates[i].AssignID(i);
+            bingoPlates[i].SetName($"{i} of {i}");
+            bingoPlates[i].CreateRows();
         }
     }
 
@@ -34,19 +34,19 @@ public class BingoBankoSpil
     {
         bool plateVictory = false;
         string winnerName = "";
-        BankoPlade winnerPlate = new();
+        BingoPlate winnerPlate = new();
         for (int i = 0; i < 90; i++)
         {
             int bingoNumber = GetBingoNumber();
-            foreach (BankoPlade plade in bankoPlader)
+            foreach (BingoPlate plate in bingoPlates)
             {
-                plade.CheckAndInsertPlateNumber(bingoNumber, plade);
+                plate.CheckAndInsertPlateNumber(bingoNumber, plate);
 
-                if (plade.GottenEntirePlate())
+                if (plate.GottenEntirePlate())
                 {
                     plateVictory = true;
-                    winnerName = plade.GetName();
-                    winnerPlate = plade;
+                    winnerName = plate.GetName();
+                    winnerPlate = plate;
                     break;
                 }
             }
@@ -54,7 +54,7 @@ public class BingoBankoSpil
             if (plateVictory)
             {
                 Console.WriteLine(i + " in, and " + winnerName + " Has won!");
-                winnerPlate.PrintPlade();
+                winnerPlate.PrintPlate();
                 break;
             }
         }
@@ -63,10 +63,10 @@ public class BingoBankoSpil
     // Method to get a random bingo number
     private int GetBingoNumber()
     {
-        Random randCaller = new Random();
+        Random r = new Random();
         while (true)
         {
-            int bingoNumber = randCaller.Next(1, 91);
+            int bingoNumber = r.Next(1, 91);
             if (usedBingoNumbers.Contains(bingoNumber))
             {
                 continue;
@@ -82,11 +82,11 @@ public class BingoBankoSpil
     // Method to print a bingo plate by name
     public void PrintByName(string name)
     {
-        foreach (BankoPlade plade in bankoPlader)
+        foreach (BingoPlate plate in bingoPlates)
         {
-            if (plade.GetName() == name)
+            if (plate.GetName() == name)
             {
-                plade.PrintPlade();
+                plate.PrintPlate();
                 return;
             }
         }
@@ -103,7 +103,7 @@ public class BingoBankoSpil
                 WriteIndented = true
             };
 
-            string jsonString = JsonSerializer.Serialize(bankoPlader, options);
+            string jsonString = JsonSerializer.Serialize(bingoPlates, options);
             File.WriteAllText(filePath, jsonString);
             Console.WriteLine($"Successfully exported to {filePath}");
         }
@@ -116,8 +116,8 @@ public class BingoBankoSpil
     // Method to check for errors in bingo plates
     public void ErrorCheckingPlates()
     {
-        foreach (var plade in bankoPlader)
-            plade.ErrorCheckingRows();
+        foreach (BingoPlate plate in bingoPlates)
+            plate.ErrorCheckingRows();
     }
 
 
@@ -125,17 +125,17 @@ public class BingoBankoSpil
     // Method to print all bingo plates in the game
     public void PrintGame()
     {
-        foreach (BankoPlade plade in bankoPlader)
-            plade.PrintPlade();
+        foreach (BingoPlate plate in bingoPlates)
+            plate.PrintPlate();
     }
 
     // Method to print a bingo plate by ID
     public void PrintById(int idNum)
     {
-        foreach (BankoPlade plade in bankoPlader)
+        foreach (BingoPlate plate in bingoPlates)
         {
-            if (plade.id == idNum)
-                plade.PrintPlade();
+            if (plate.id == idNum)
+                plate.PrintPlate();
         }
     }
 }

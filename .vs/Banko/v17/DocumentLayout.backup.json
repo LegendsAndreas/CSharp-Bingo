@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{222782C7-15F3-4CA2-B149-B7995241DBCD}|Banko\\Banko.csproj|solutionrelative:banko\\row.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{222782C7-15F3-4CA2-B149-B7995241DBCD}|Banko\\Banko.csproj|c:\\users\\andre\\desktop\\pog grammering\\c#\\andreas_banko\\banko\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{222782C7-15F3-4CA2-B149-B7995241DBCD}|Banko\\Banko.csproj|solutionrelative:banko\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{222782C7-15F3-4CA2-B149-B7995241DBCD}|Banko\\Banko.csproj|c:\\users\\andre\\desktop\\pog grammering\\c#\\andreas_banko\\banko\\alternativebingo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{222782C7-15F3-4CA2-B149-B7995241DBCD}|Banko\\Banko.csproj|solutionrelative:banko\\alternativebingo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{222782C7-15F3-4CA2-B149-B7995241DBCD}|Banko\\Banko.csproj|c:\\users\\andre\\desktop\\pog grammering\\c#\\andreas_banko\\banko\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{222782C7-15F3-4CA2-B149-B7995241DBCD}|Banko\\Banko.csproj|solutionrelative:banko\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{222782C7-15F3-4CA2-B149-B7995241DBCD}|Banko\\Banko.csproj|c:\\users\\andre\\desktop\\pog grammering\\c#\\andreas_banko\\banko\\bingobankospil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -34,13 +34,13 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "AlternativeBingo.cs",
               "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Pog grammering\\C#\\andreas_banko\\Banko\\AlternativeBingo.cs",
               "RelativeDocumentMoniker": "Banko\\AlternativeBingo.cs",
               "ToolTip": "C:\\Users\\andre\\Desktop\\Pog grammering\\C#\\andreas_banko\\Banko\\AlternativeBingo.cs",
               "RelativeToolTip": "Banko\\AlternativeBingo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAGEAAAAAAAAAAAAkwH8AAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-23T08:48:41.83Z",
               "EditorCaption": ""
@@ -53,10 +53,9 @@
               "RelativeDocumentMoniker": "Banko\\BingoBankoSpil.cs",
               "ToolTip": "C:\\Users\\andre\\Desktop\\Pog grammering\\C#\\andreas_banko\\Banko\\BingoBankoSpil.cs",
               "RelativeToolTip": "Banko\\BingoBankoSpil.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIoAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHQAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T08:47:46.375Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T08:47:46.375Z"
             },
             {
               "$type": "Document",
@@ -66,10 +65,9 @@
               "RelativeDocumentMoniker": "Banko\\BankoPlade.cs",
               "ToolTip": "C:\\Users\\andre\\Desktop\\Pog grammering\\C#\\andreas_banko\\Banko\\BankoPlade.cs",
               "RelativeToolTip": "Banko\\BankoPlade.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAACkAAAAAAAAAAAAUwAkAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T08:45:51.07Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T08:45:51.07Z"
             },
             {
               "$type": "Document",
@@ -79,20 +77,20 @@
               "RelativeDocumentMoniker": "Banko\\Row.cs",
               "ToolTip": "C:\\Users\\andre\\Desktop\\Pog grammering\\C#\\andreas_banko\\Banko\\Row.cs",
               "RelativeToolTip": "Banko\\Row.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAwB0AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAwwEoAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-23T08:38:50.569Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\andre\\Desktop\\Pog grammering\\C#\\andreas_banko\\Banko\\Program.cs",
               "RelativeDocumentMoniker": "Banko\\Program.cs",
               "ToolTip": "C:\\Users\\andre\\Desktop\\Pog grammering\\C#\\andreas_banko\\Banko\\Program.cs",
               "RelativeToolTip": "Banko\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-15T11:18:44.041Z",
               "EditorCaption": ""

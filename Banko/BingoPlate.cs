@@ -5,15 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 // Class representing an individual bingo plate
-public class BankoPlade
+public class BingoPlate
 {
-    // Properties of a bingo plate
-    public string? name { get; set; } // Name of the plate
-    public int? id { get; set; } // ID of the plate
-    public int earnedRows { get; set; } = 0; // Number of rows earned (marked)
-    public Row row1 { get; set; } = new(); // First row of the plate
-    public Row row2 { get; set; } = new(); // Second row of the plate
-    public Row row3 { get; set; } = new(); // Third row of the plate
+    public string? name { get; set; }
+    public int? id { get; set; }
+    public int completedRows { get; set; } = 0;
+    public Row row1 { get; set; } = new();
+    public Row row2 { get; set; } = new();
+    public Row row3 { get; set; } = new();
 
     // Method to assign an ID to the plate
     public void AssignID(int idNum)
@@ -30,7 +29,7 @@ public class BankoPlade
     // Method to check if the entire plate is completed
     public bool GottenEntirePlate()
     {
-        if (row1.lineStatus == true && row2.lineStatus == true && row3.lineStatus == true)
+        if (row1.rowCompletion == true && row2.rowCompletion == true && row3.rowCompletion == true)
             return true;
         else
             return false;
@@ -54,17 +53,21 @@ public class BankoPlade
     }
 
     // Method to check a bingo number on the plate and update status
-    public void CheckAndInsertPlateNumber(int bingoNumber, BankoPlade plade)
+    public void CheckAndInsertPlateNumber(int bingoNumber, BingoPlate plade)
     {
+        // By dividing the bingo number by 10 as integers, we get the corresponing index.
+        // Except for the bingo number "90", that gives us 9, which is out of bound, so we minus 1.
         int bingoNumberIndex = bingoNumber / 10;
         if (bingoNumberIndex == 9)
             bingoNumberIndex--;
 
-        if (!row1.lineStatus && row1.numbers[bingoNumberIndex] == bingoNumber)
+        if (!row1.rowCompletion && row1.rowNumbers[bingoNumberIndex] == bingoNumber)
             row1.InsertBingoNumberIntoRow(row1, bingoNumberIndex, 1, plade);
-        else if (!row2.lineStatus && row2.numbers[bingoNumberIndex] == bingoNumber)
+
+        else if (!row2.rowCompletion && row2.rowNumbers[bingoNumberIndex] == bingoNumber)
             row2.InsertBingoNumberIntoRow(row2, bingoNumberIndex, 2, plade);
-        else if (!row3.lineStatus && row3.numbers[bingoNumberIndex] == bingoNumber)
+
+        else if (!row3.rowCompletion && row3.rowNumbers[bingoNumberIndex] == bingoNumber)
             row3.InsertBingoNumberIntoRow(row3, bingoNumberIndex, 3, plade);
     }
 
@@ -85,7 +88,7 @@ public class BankoPlade
     }
 
     // Method to print the bingo plate
-    public void PrintPlade()
+    public void PrintPlate()
     {
         Console.WriteLine($"{name}:");
         PrintRow(row1);
@@ -96,8 +99,9 @@ public class BankoPlade
     // Helper method to print a row
     private void PrintRow(Row row)
     {
-        foreach (int elm in row.numbers)
+        foreach (int elm in row.rowNumbers)
         {
+            // We pad by 3 to make it look more nicer.
             string elementStr = elm.ToString();
             Console.Write(elementStr.PadRight(3));
         }

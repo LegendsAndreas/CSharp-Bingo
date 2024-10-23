@@ -6,10 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 // Class representing the alternative bingo game
-public class AlternativeBingo : BankoPlade
+public class AlternativeBingo : BingoPlate
 {
-    Hashtable bingoPlates = new(); // Hashtable to store bingo plates by name
-    readonly List<int> usedBingoNumbers = new(); // List to keep track of used bingo numbers
+    Hashtable bingoPlates = new();
+    readonly List<int> usedBingoNumbers = new();
 
     // Method to start the bingo game
     public void StartGame()
@@ -72,18 +72,18 @@ public class AlternativeBingo : BankoPlade
     // Method to print all bingo plates
     private void PrintAllPlates()
     {
-        BankoPlade plade = new();
+        BingoPlate plate = new();
         foreach (DictionaryEntry entry in bingoPlates)
         {
-            plade = (BankoPlade)entry.Value;
-            plade.PrintPlade();
+            plate = (BingoPlate)entry.Value;
+            plate.PrintPlate();
         }
     }
 
     // Method to create a new bingo plate
     private void CreatePlate(string name)
     {
-        BankoPlade tempPlate = new();
+        BingoPlate tempPlate = new();
         tempPlate.CreateRows();
         tempPlate.SetName(name);
         bingoPlates[name] = tempPlate;
@@ -92,9 +92,9 @@ public class AlternativeBingo : BankoPlade
     // Method to print a specific bingo plate by name
     private void PrintPlate(string name)
     {
-        BankoPlade tempPlate = new();
-        tempPlate = (BankoPlade)bingoPlates[name];
-        tempPlate.PrintPlade();
+        BingoPlate tempPlate = new();
+        tempPlate = (BingoPlate)bingoPlates[name];
+        tempPlate.PrintPlate();
     }
 
     // Method to convert bingo number from string to integer
@@ -120,18 +120,18 @@ public class AlternativeBingo : BankoPlade
         {
             bool plateVictory = false;
             string winnerName = "";
-            BankoPlade winnerPlate = new();
+            BingoPlate winnerPlate = new();
             usedBingoNumbers.Add(bingoNumber);
             foreach (DictionaryEntry entry in bingoPlates)
             {
-                BankoPlade plade = (BankoPlade)entry.Value;
-                plade.CheckAndInsertPlateNumber(bingoNumber, plade);
+                BingoPlate plate = (BingoPlate)entry.Value;
+                plate.CheckAndInsertPlateNumber(bingoNumber, plate);
 
-                if (plade.GottenEntirePlate())
+                if (plate.GottenEntirePlate())
                 {
                     plateVictory = true;
-                    winnerName = plade.GetName();
-                    winnerPlate = plade;
+                    winnerName = plate.GetName();
+                    winnerPlate = plate;
                     break;
                 }
             }
@@ -139,7 +139,7 @@ public class AlternativeBingo : BankoPlade
             if (plateVictory)
             {
                 Console.WriteLine(winnerName + " Has won!");
-                winnerPlate.PrintPlade();
+                winnerPlate.PrintPlate();
             }
         }
     }
